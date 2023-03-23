@@ -36,6 +36,12 @@
         justify-content: center;
         margin-top: 20px;
       }
+      .mo {
+        width: 65px;
+      }
+      .ap{
+        width: 60px;
+      }
       h2 {
         width: 30px;
         color: #32CD32;
@@ -62,6 +68,9 @@
       <div class="f sec">
         <h2 class="s"></h2>
       </div>
+      <div class="f apm">
+        <h2 class="ap">AM</h2>
+      </div>
     </div>
 
     <div class="ymd">
@@ -84,6 +93,7 @@
         const ho = document.querySelector(".h");
         const mi = document.querySelector(".m");
         const se = document.querySelector(".s");
+        const ap = document.querySelector(".ap");
 
         const da = document.querySelector(".d");
         const mo = document.querySelector(".mo");
@@ -98,12 +108,55 @@
         let mon = tim.getMonth();
         let yr = tim.getFullYear();
 
+        function month(mon){
+          if(mon == 0){
+            mo.innerHTML = 'January';
+          }
+          else if(mon == 1){
+            mo.innerHTML = 'February';
+          }
+          else if(mon == 2){
+            mo.innerHTML = 'March';
+          }
+          else if(mon == 3){
+            mo.innerHTML = 'April';
+          }
+          else if(mon == 4){
+            mo.innerHTML = 'May';
+          }
+          else if(mon == 5){
+            mo.innerHTML = 'June';
+          }
+          else if(mon == 6){
+            mo.innerHTML = 'July';
+          }
+          else if(mon == 7){
+            mo.innerHTML = 'August';
+          }
+          else if(mon == 8){
+            mo.innerHTML = 'September';
+          }
+          else if(mon == 9){
+            mo.innerHTML = 'October';
+          }
+          else if(mon == 10){
+            mo.innerHTML = 'November';
+          }
+          else if(mon == 11){
+            mo.innerHTML = 'December';
+          }
+        }
+        
         ho.innerHTML = hour;
+        if(hour >= 12){
+          ap.innerHTML = 'PM';
+          ho.innerHTML = hour-12;
+        }
         mi.innerHTML = mint;
         se.innerHTML = seco;
 
         da.innerHTML = dat;
-        mo.innerHTML = mon + 1;
+        month(mon);
         ye.innerHTML = yr;
 
         setTimeout(()=>{currentTime();}, 1000);
