@@ -25,8 +25,8 @@
       }
       .head {
         color: #f5f5f5;
-        padding-bottom: 30px;
-        font-size: 2.5rem;
+        padding-block: 35px;
+        font-size: 3.5rem;
         font-weight: 500;
         letter-spacing: 8px;
       }
@@ -34,7 +34,7 @@
       .ymd {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 10px;
       }
       .ap{
           padding-left: 10px;
@@ -48,41 +48,108 @@
       .f{
         display: flex;
       }
+
+      .wallW{
+        font-family: sysm-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+        margin-inline: auto;
+        margin-bottom: 10px;
+        background-color: #1e7a1e;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: url(clock.avif);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .seconds{
+        position: relative;
+        top: 234px;
+        color: #ce0000;
+        font-size: 150px;
+        padding-bottom: 40px;
+        font-weight: 100;
+        z-index: 3;
+        /* animation: rotate 60s linear infinite; */
+        /* transform: rotate(90deg); */
+
+      }
+      .minuts{
+        position: relative;
+        top: -8px;
+        color: #484848;
+        font-size: 150px;
+        padding-bottom: 90px;
+        font-weight: 200;
+        z-index: 2;
+        /* animation: rotate 3600s linear infinite; */
+        /* transform: rotate(90deg); */
+      }
+      .hours{
+        position: relative;
+        bottom: 259px;
+        color: #000000;
+        font-size: 150px;
+        padding-bottom: 60px;
+        font-weight: 300;
+        z-index: 1;
+      }
+      .dot{
+        position: relative;
+        bottom: -364px;
+        color: #674e03;
+        font-size: 30px;
+        font-weight: 900;
+        z-index: 4;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <div class="con">
-        <h1 class="head">Clock</h1>
-    <div class="time">
-      <div class="f hour">
-        <h2 class="h"></h2>
-        <h2>:</h2>
-      </div>
-      <div class="f min">
-        <h2 class="m"></h2>
-        <h2>:</h2>
-      </div>
-      <div class="f sec">
-        <h2 class="s"></h2>
-      </div>
-      <div class="f apm">
-        <h2 class="ap">AM</h2>
-      </div>
-    </div>
 
-    <div class="ymd">
-      <div class="f date">
-        <h2 class="d"></h2>
-        <h2>:</h2>
+    <div class="con">
+      <h1 class="head">Clock</h1>
+      <div class="wallW">
+        <div class="smh">
+          <div class="dot">*</div>
+          <div class="seconds">!</div>
+          <div class="minuts">|</div>
+          <div class="hours">l</div>
+        </div>
       </div>
-      <div class="f month">
-        <h2 class="mo"></h2>
-        <h2>:</h2>
+    
+      <div class="time">
+        <div class="f hour">
+          <h2 class="h"></h2>
+          <h2>:</h2>
+        </div>
+        <div class="f min">
+          <h2 class="m"></h2>
+          <h2>:</h2>
+        </div>
+        <div class="f sec">
+          <h2 class="s"></h2>
+        </div>
+        <div class="f apm">
+          <h2 class="ap">AM</h2>
+        </div>
       </div>
-      <div class="f year">
-        <h2 class="y"></h2>
+
+      <div class="ymd">
+        <div class="f date">
+          <h2 class="d"></h2>
+          <h2>:</h2>
+        </div>
+        <div class="f month">
+          <h2 class="mo"></h2>
+          <h2>:</h2>
+        </div>
+        <div class="f year">
+          <h2 class="y"></h2>
+        </div>
       </div>
-    </div>
     </div>
 
     <script>
@@ -95,6 +162,10 @@
         const da = document.querySelector(".d");
         const mo = document.querySelector(".mo");
         const ye = document.querySelector(".y");
+
+        const seconds = document.querySelector(".seconds");
+        const minuts = document.querySelector(".minuts");
+        const hours = document.querySelector(".hours");
 
         let tim = new Date();
         let hour = tim.getHours();
@@ -155,6 +226,14 @@
         da.innerHTML = dat;
         month(mon);
         ye.innerHTML = yr;
+
+        const hr_rotation = 30 * hour + mint / 2; //converting current time
+        const min_rotation = 6 * mint;
+        const sec_rotation = 6 * seco;
+      
+        hours.style.transform = `rotate(${hr_rotation}deg)`;
+        minuts.style.transform = `rotate(${min_rotation}deg)`;
+        seconds.style.transform = `rotate(${sec_rotation}deg)`;
 
         setTimeout(()=>{currentTime();}, 1000);
       }
