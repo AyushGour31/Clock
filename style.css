@@ -153,10 +153,7 @@ h2 {
 @media screen and (max-width: 500px) {
   .switchBody{
     left: 370px;
-    top: -33;
-  }
-  .setTimeAlarm{
-    padding: 20px;
+    top: -25;
   }
 }
 @media screen and (max-width: 420px) {
