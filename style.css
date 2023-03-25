@@ -128,13 +128,13 @@ h2 {
     /* background-color: #3c3c3c; */
     /* background-color: #76a762; */
     position: relative;
-    left: 350px;
+    left: 400px;
     top: -35px;
     border-radius: 10px;
     display: flex;
     justify-content: left;
     align-items: center;
-    z-index: 3;
+    z-index: 2;
 }
 .switch{
     width: 18px;
@@ -149,4 +149,17 @@ h2 {
 
 .switch input {
     display: none;
+}
+@media screen and (max-width: 500px) {
+  .switchBody{
+    left: 370px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .switchBody{
+    left: 320px;
+  }
+  .time, .ymd, .sa, .saveAlarm, .setTimeAlarm, .addAlarmBtn{
+    width: 370px;
+  }
 }
