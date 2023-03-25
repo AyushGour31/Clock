@@ -24,7 +24,7 @@ function currentTime() {
   //     `;
   //   };
 
-  let aud;
+  let aud = false;
   // afterSaveAlrm.onclick = () => {
   //   aud = true;
   // };
