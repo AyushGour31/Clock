@@ -86,7 +86,9 @@ function currentTime() {
   
   if (seco === 01) {
     alarmPlay();
-    ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
+    if(alarmPlay()){
+      ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
+    }
     aud = false;
   }
 
