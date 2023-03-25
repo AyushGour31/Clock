@@ -82,9 +82,7 @@ function currentTime() {
     if (time === ls) {
       audio.play();
     }
-    if (time === ls) {
-      ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
-    }
+    ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
   }
   
   if (seco === 01) {
