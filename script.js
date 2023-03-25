@@ -81,6 +81,8 @@ function currentTime() {
     const ls = localStorage.getItem("alarm");
     if (time === ls) {
       audio.play();
+    }
+    if (time === ls) {
       ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
     }
   }
