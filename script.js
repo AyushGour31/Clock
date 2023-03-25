@@ -24,9 +24,8 @@ function currentTime() {
   //     `;
   //   };
 
-  let aud = false;
   // afterSaveAlrm.onclick = () => {
-  //   aud = true;
+
   // };
 
   let tim = new Date();
@@ -56,7 +55,6 @@ function currentTime() {
       swtchBd.style.backgroundColor = "#3c3c3c";
       localStorage.removeItem("alarm");
     }
-    aud = true;
     e.preventDefault();
   };
 
@@ -79,23 +77,14 @@ function currentTime() {
       }
     }
     const ls = localStorage.getItem("alarm");
-    if (time == ls) {
+    if (time === ls) {
       audio.play();
       ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
-    }
-    // else if(hour >= 12){
-    //   hour = hour+12;
-    //   if(time == ls){
-    //     audio.play();
-    //     ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
-
-    //   }
     }
   }
   
   if (seco === 01) {
     alarmPlay();
-    aud = false;
   }
 
   function month(mon) {
