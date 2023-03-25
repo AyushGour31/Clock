@@ -81,14 +81,12 @@ function currentTime() {
     const ls = localStorage.getItem("alarm");
     if (time === ls) {
       audio.play();
+      ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
     }
   }
   
   if (seco === 01) {
     alarmPlay();
-    if(alarmPlay()){
-      ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
-    }
     aud = false;
   }
 
