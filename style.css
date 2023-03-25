@@ -110,6 +110,9 @@ h2 {
     margin-top: 10px;
     outline: none;
 }
+.setTimeAlarm{
+  z-index: 2;
+}
 .addAlarmBtn:hover{
     border: 2px solid #d59e13be;
 }
@@ -123,22 +126,22 @@ h2 {
 }
 
 .switchBody{
-    width: 35px;
+    width: 50px;
     height: 20px;
     /* background-color: #3c3c3c; */
     /* background-color: #76a762; */
     position: relative;
-    left: 400px;
-    top: -30px;
+    left: 380px;
+    top: -35px;
     border-radius: 10px;
     display: flex;
     justify-content: left;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
 }
 .switch{
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 25px;
     background-color: #f5f5f5;
     border: #f5f5f5;
     border-radius: 50%;
@@ -152,13 +155,13 @@ h2 {
 }
 @media screen and (max-width: 500px) {
   .switchBody{
-    left: 370px;
+    left: 350px;
     top: -20;
   }
 }
 @media screen and (max-width: 420px) {
   .switchBody{
-    left: 320px;
+    left: 300px;
     top: -20;
   }
   .time, .ymd, .sa, .saveAlarm, .setTimeAlarm, .addAlarmBtn{
