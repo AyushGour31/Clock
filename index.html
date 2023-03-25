@@ -5,89 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clock</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        text-align: center;
-        font-family: sans-serif;
-        background-color: #f5f5f5;
-      }
-      .con{
-        height: calc(100vh - 220px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .head {
-        color: #070707;
-        padding-block: 35px;
-        font-size: 3.5rem;
-        font-weight: 500;
-        letter-spacing: 8px;
-      }
-      .time,
-      .ymd {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-inline: auto;
-        padding: 8px;
-        border-radius: 12px;
-        background-color: #070707;
-        width: 400px;
-      }
-      .ap{
-          padding-left: 10px;
-      }
-      h2 {
-        padding: 5px;
-        color: #32CD32;
-        font-weight: 500;
-        text-shadow: 1px 3px 3px #1e7a1e;
-      }
-      .f{
-        display: flex;
-      }
-
-      .wallW{
-        font-family: sysm-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
-        margin-inline: auto;
-        margin-bottom: 10px;
-        background-color: #1e7a1e;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: url(Clock/34139.svg) no-repeat;
-        background-size: contain;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .smh{
-        width: 9px;
-      }
-      .seconds{
-        position: relative;
-        padding-top: 3px;
-        top: 259.5px;
-        z-index: 3;
-      }
-      .minuts{
-        position: relative;
-        top: -3px;
-        z-index: 2;
-      }
-      .hours{
-        position: relative;
-        top: -259.5px;
-        left: 1.5px;
-        z-index: 1;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -95,9 +13,9 @@
       <h1 class="head">Clock</h1>
       <div class="wallW">
         <div class="smh">
-          <div class="seconds"><img src="Clock/Asset 2.svg" alt=""></div>
-          <div class="minuts"><img src="Clock/Asset 3.svg" alt=""></div>
-          <div class="hours"><img src="Clock/Asset 4.svg" alt=""></div>
+          <div class="seconds"><img src="images/Asset 2.svg" alt=""></div>
+          <div class="minuts"><img src="images/Asset 3.svg" alt=""></div>
+          <div class="hours"><img src="images/Asset 4.svg" alt=""></div>
         </div>
       </div>
     
@@ -131,94 +49,30 @@
           <h2 class="y"></h2>
         </div>
       </div>
+      
+      <div class="alarm">
+        <p class="oo">Alarm</p>
+        <form class="timeForm" action="">
+          <!-- <button class="addAlarmBtn">Add Alarm</button> -->
+          <input type="time" class="setTimeAlarm" value="12:00" id="">
+          
+          <div class="switchBody">
+            <button type="button" class="switch"></button>
+          </div>
+
+          <button class="saveAlarm">Save</button>
+          <div class="closeAlarm"></div>
+        </form>
+
+
+        <!-- <div class="getAlarms">
+          
+        </div> -->
+
+      </div>
+      
     </div>
 
-    <script>
-      function currentTime() {
-        const ho = document.querySelector(".h");
-        const mi = document.querySelector(".m");
-        const se = document.querySelector(".s");
-        const ap = document.querySelector(".ap");
-
-        const da = document.querySelector(".d");
-        const mo = document.querySelector(".mo");
-        const ye = document.querySelector(".y");
-
-        const seconds = document.querySelector(".seconds");
-        const minuts = document.querySelector(".minuts");
-        const hours = document.querySelector(".hours");
-
-        let tim = new Date();
-        let hour = tim.getHours();
-        let mint = tim.getMinutes();
-        let seco = tim.getSeconds();
-
-        let dat = tim.getDate();
-        let mon = tim.getMonth();
-        let yr = tim.getFullYear();
-
-        function month(mon){
-          if(mon == 0){
-            mo.innerHTML = 'January';
-          }
-          else if(mon == 1){
-            mo.innerHTML = 'February';
-          }
-          else if(mon == 2){
-            mo.innerHTML = 'March';
-          }
-          else if(mon == 3){
-            mo.innerHTML = 'April';
-          }
-          else if(mon == 4){
-            mo.innerHTML = 'May';
-          }
-          else if(mon == 5){
-            mo.innerHTML = 'June';
-          }
-          else if(mon == 6){
-            mo.innerHTML = 'July';
-          }
-          else if(mon == 7){
-            mo.innerHTML = 'August';
-          }
-          else if(mon == 8){
-            mo.innerHTML = 'September';
-          }
-          else if(mon == 9){
-            mo.innerHTML = 'October';
-          }
-          else if(mon == 10){
-            mo.innerHTML = 'November';
-          }
-          else if(mon == 11){
-            mo.innerHTML = 'December';
-          }
-        }
-        
-        ho.innerHTML = hour;
-        if(hour >= 12){
-          ap.innerHTML = 'PM';
-          ho.innerHTML = hour-12;
-        }
-        mi.innerHTML = mint;
-        se.innerHTML = seco;
-
-        da.innerHTML = dat;
-        month(mon);
-        ye.innerHTML = yr;
-
-        const hr_rotation = 30 * hour + mint / 2; //converting current time
-        const min_rotation = 6 * mint;
-        const sec_rotation = 6 * seco;
-      
-        hours.style.transform = `rotate(${hr_rotation}deg)`;
-        minuts.style.transform = `rotate(${min_rotation}deg)`;
-        seconds.style.transform = `rotate(${sec_rotation}deg)`;
-
-        setTimeout(()=>{currentTime();}, 1000);
-      }
-      currentTime();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
