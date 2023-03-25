@@ -153,7 +153,7 @@ h2 {
 @media screen and (max-width: 500px) {
   .switchBody{
     left: 370px;
-    top: -25;
+    top: -20;
   }
 }
 @media screen and (max-width: 420px) {
