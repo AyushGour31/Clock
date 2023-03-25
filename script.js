@@ -14,7 +14,7 @@ function currentTime() {
 
   const addAlrm = document.querySelector(".addAlarmBtn");
   const tf = document.querySelector(".timeForm");
-  const afterSaveAlrm = document.querySelector(".saveAlarm");
+  // const afterSaveAlrm = document.querySelector(".saveAlarm");
   const setAlrm = document.querySelector(".setTimeAlarm");
 
   //   addAlrm.onclick = function () {
@@ -25,9 +25,9 @@ function currentTime() {
   //   };
 
   let aud;
-  afterSaveAlrm.onclick = () => {
-    aud = true;
-  };
+  // afterSaveAlrm.onclick = () => {
+  //   aud = true;
+  // };
 
   let tim = new Date();
   let hour = tim.getHours();
@@ -56,6 +56,7 @@ function currentTime() {
       swtchBd.style.backgroundColor = "#3c3c3c";
       localStorage.removeItem("alarm");
     }
+    aud = true;
     e.preventDefault();
   };
 
@@ -81,11 +82,11 @@ function currentTime() {
     if (time === ls) {
       audio.play();
     }
-    ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
   }
-
+  
   if (seco === 01) {
     alarmPlay();
+    ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
     aud = false;
   }
 
