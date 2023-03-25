@@ -80,13 +80,13 @@ function currentTime() {
     }
     const ls = localStorage.getItem("alarm");
     if (time == ls) {
-      audio.autoplay();
+      audio.play();
       ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
     }
     else if(hour >= 12){
       hour = hour+12;
       if(time == ls){
-        audio.autoplay();
+        audio.play();
         ca.innerHTML = `<button class="sa">Stop Alarm</button>`;
 
       }
